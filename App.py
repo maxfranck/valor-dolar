@@ -13,10 +13,10 @@ def buscarDados():
     if len(dados)!=0:  
         return dados[0]['cotacaoVenda']
     else:
-        return 'Nada'
+        return None
 
 if __name__ == '__main__':
-    if buscarDados() != 'Nada':
+    if buscarDados() != None:
         date = datetime.today().strftime('%Y-%m-%d')
         date_time = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
         print(date)
@@ -33,9 +33,9 @@ if __name__ == '__main__':
             conexao.commit()
             cursor.close()
 
-            print("Usuário cadastrado com sucesso!")
+            print("Cotação cadastrada com sucesso!")
         except:
-            print("Ocorreu um erro na inserção do usuário")
+            print("Ocorreu um erro na inserção da cotação")
 
     else:
         print('SEM COTAÇÃO')
