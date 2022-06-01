@@ -4,9 +4,8 @@ import mysql.connector
 from datetime import datetime
 
 def buscarDados():
-    # data_cotacao = datetime.today().strftime('%m-%d-%Y')
-    date_cotacao = '05-09-2022'
-    request = requests.get(f"https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='{date_cotacao}'&$top=100&$format=json&$select=cotacaoCompra,cotacaoVenda,dataHoraCotacao")
+    data_cotacao = datetime.today().strftime('%m-%d-%Y')
+    request = requests.get(f"https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='{data_cotacao}'&$top=100&$format=json&$select=cotacaoCompra,cotacaoVenda,dataHoraCotacao")
     todo = json.loads(request.content)
     dados = todo['value']
 
